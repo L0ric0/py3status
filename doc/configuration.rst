@@ -81,6 +81,27 @@ Global options:
         nagbar_font = 'pango:Ubuntu Mono 12'
     }
 
+.. note::
+    New in version 3.12
+
+``storage``: Set storage name or path.
+
+.. code-block:: py3status
+    :caption: Example
+
+    py3status {
+        # cache storage name per config
+        storage = 'py3status_top.data'     # ~/.cache/{storage}
+        storage = 'py3status_bottom.data'  # ~/.cache/{storage}
+
+        # persistent storage path per config
+        storage = '~/.config/py3status/cache_top.storage'
+        storage = '~/.config/py3status/cache_bottom.storage'
+
+        # if unset, use shared cache storage path
+        storage =  '~/.cache/py3status_cache.data'
+    }
+
 Configuration obfuscation
 -------------------------
 
