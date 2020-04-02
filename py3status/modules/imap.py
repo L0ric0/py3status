@@ -356,8 +356,7 @@ class Py3status:
                 for directory in directories:
                     ok, _ = self.connection.select('"{}"'.format(directory))
                     if ok != "OK":
-                        if self.debug:
-                            self.py3.log("cannot select {}".format(directory))
+                        raise imaplib.IMAP4.error("cannot select {}".format(directory))
                     else:
                         unseen_response = self.connection.search(None, self.criterion)
                         mails = unseen_response[1][0].split()
