@@ -357,10 +357,9 @@ class Py3status:
                     ok, _ = self.connection.select('"{}"'.format(directory))
                     if ok != "OK":
                         raise imaplib.IMAP4.error("cannot select {}".format(directory))
-                    else:
-                        unseen_response = self.connection.search(None, self.criterion)
-                        mails = unseen_response[1][0].split()
-                        tmp_mail_count += len(mails)
+                    unseen_response = self.connection.search(None, self.criterion)
+                    mails = unseen_response[1][0].split()
+                    tmp_mail_count += len(mails)
 
                 self.mail_count = tmp_mail_count
                 self.network_error = None
